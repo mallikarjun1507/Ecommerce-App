@@ -1,26 +1,32 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <v-app>
+    <!-- Optional Top App Bar -->
+    <v-app-bar app color="primary" dark>
+      <v-toolbar-title>E-Commerce</v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-btn icon @click="$router.push('/')">
+        <v-icon>mdi-home</v-icon>
+      </v-btn>
+      <v-btn icon @click="$router.push('/cart')">
+        <v-icon>mdi-cart</v-icon>
+      </v-btn>
+      <ThemeSwitcher />
+    </v-app-bar>
+
+    <!-- Main content -->
+    <v-main>
+      <router-view />
+    </v-main>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import ThemeSwitcher from './components/ThemeSwitcher.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
-}
+    ThemeSwitcher,
+  },
+};
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
